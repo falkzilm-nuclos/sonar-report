@@ -598,10 +598,10 @@ const generateReport = async (options) => {
     });
 
     data.summary = {
-      high: data.issues.filter((issue) => (issue.severity === "HIGH" || issue.severity === "BLOCKER"))
+      high: data.issues.filter((issue) => (issue.severity === "HIGH" || issue.severity === "CRITICAL" || issue.severity === "BLOCKER"))
         .length,
-      medium: data.issues.filter((issue) => issue.severity === "MEDIUM").length,
-      low: data.issues.filter((issue) => issue.severity === "LOW").length,
+      medium: data.issues.filter((issue) => issue.severity === "MEDIUM" || issue.severity === "MAJOR").length,
+      low: data.issues.filter((issue) => issue.severity === "LOW" || issue.severity === "MINOR").length,
     };
   }
 
